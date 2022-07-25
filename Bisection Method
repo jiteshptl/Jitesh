@@ -1,0 +1,36 @@
+//Bisection Method
+#include<stdio.h>
+#include<conio.h>
+int main()
+{
+	float a,b,x[15],y[15],c[15],fc[15];
+	int i,p,q,r;
+	printf("For Equation: ax2+bx+c:\nEnter values of a,b,c\n");
+	scanf("%d%d%d",&p,&q,&r);
+	printf("Enter value of a and b:\n");
+	scanf("%f%f",&a,&b);
+	x[0]=a;
+	y[0]=b;
+	c[0]=(a+b)/2;
+	fc[0]=p*(c[0]*c[0])+q*c[0]+r;
+	for(i=0;i<15;i++)
+{
+	if(fc[i]<0){
+		x[i+1]=c[i];
+		y[i+1]=y[i];
+		c[i+1]=(x[i+1]+y[i+1])/2;
+		fc[i+1]=p*(c[i+1]*c[i+1])+q*c[i+1]+r;
+	}else{
+		y[i+1]=c[i];
+		x[i+1]=x[i];
+		c[i+1]=(x[i+1]+y[i+1])/2;
+	fc[i+1]=p*(c[i+1]*c[i+1])+q*c[i+1]+r;
+	}
+}
+	for(i=0;i<15;i++)
+	{
+	printf("S.N.: (%d)\ta= %.5f b= %.5f c= %.5f fc= %.5f\n",i,x[i],y[i],c[i],fc[i]);
+	}
+
+	return 0;
+}
