@@ -1,0 +1,70 @@
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+float Det(float a,float b, float c, float d)
+{
+	return((a*d)-(b*c));
+}
+int main()
+{
+	float *x,*y,*x2,*xy,n,sx,sy,sx2,sxy,D,D1,D2,a,b;
+	printf("Enter value of 'n': ");
+	scanf("%f",&n);
+	x=(float*)malloc(sizeof(float)*n);
+	y=(float*)malloc(sizeof(float)*n);
+	x2=(float*)malloc(sizeof(float)*n);
+	xy=(float*)malloc(sizeof(float)*n);
+	//Taking Value from X
+	printf("Enter the values in x:\n");
+	for(int i=0;i<n;i++)
+	{
+		scanf("%f",x+i);
+	}
+	for(int i=0;i<n;i++)
+	{
+		//printf("%.2f\n",x[i]);
+		sx+=x[i];
+	}
+	//printf("SummationX= %.2f",sx);
+	//Taking values from Y
+	printf("Enter the values in y:\n");
+	for(int i=0;i<n;i++)
+	{
+		scanf("%f",y+i);
+	}
+	for(int i=0;i<n;i++)
+	{
+		//printf("%.2f\n",y[i]);
+		sy+=y[i];
+	}
+//	printf("SummationY= %.2f",sy);
+	//Calculating X^2
+	for(int i=0;i<n;i++)
+	{
+		x2[i]=x[i]*x[i];
+		sx2+=x2[i];
+	}
+//	printf("Summation X^2= %.2f",sx2);*/
+	//Calculating x*y
+	for(int i=0;i<n;i++)
+	{
+		xy[i]=x[i]*y[i];
+		sxy+=xy[i];
+	}
+	//printf("%.2f",sxy);
+	D=Det(sx,n,sx2,sx);
+	D1=Det(sy,n,sxy,sx);
+	D2=Det(sx,sy,sx2,sxy);
+	a=D1/D;
+	b=D2/D;
+	printf("Required Equation is:\n\ny=%.2f+%.2fx",a,b);
+	//printf("Determinant= %.2f",D);
+return 0;
+}
+
+/*for(int i=0;i<n;i++)
+	{
+		printf("%.2f\n",xy[i]);
+	}*/
+
+
