@@ -1,0 +1,72 @@
+//y= ax^2 + b/x form
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+//function to calculate determinant of 2X2 matrix
+float Det(float a,float b, float c, float d)
+{
+	return((a*d)-(b*c));
+}
+int main()
+{
+	printf("\t\t\t***THIS IS PROGRAM FOR y= ax^2 + b/x form*****\n");
+	float *x,*y,*X,*Y,*XY,*X2,n,sx,sy,sX,sY,sXY,sX2,D,D1,D2,a,b;
+	printf("Enter value of 'n': ");
+	scanf("%f",&n);
+	x=(float*)malloc(sizeof(float)*n);
+	y=(float*)malloc(sizeof(float)*n);
+	Y=(float*)malloc(sizeof(float)*n);
+	XY=(float*)malloc(sizeof(float)*n);
+	X=(float*)malloc(sizeof(float)*n);
+	X2=(float*)malloc(sizeof(float)*n);
+	//Taking Value of X
+	printf("Enter the values in x:\n");
+	for(int i=0;i<n;i++)
+	{
+		scanf("%f",x+i);
+	}
+	//Taking values of Y
+	printf("Enter the values in y:\n");
+	for(int i=0;i<n;i++)
+	{
+		scanf("%f",y+i);
+	}
+	/*calculating required table values and summations
+	Required value of table: x, y, Y=x*y, X=x^3, X*Y, X^2
+	Respective sum are: Sx, Sy, SX, SY, SXY, SX2*/
+	for(int i=0;i<n;i++)
+	{
+		sx+=x[i];
+		sy+=y[i];
+		Y[i]=x[i]*y[i];
+		sY+=Y[i];
+		X[i]=x[i]*x[i]*x[i];
+		sX+=X[i];
+		XY[i]=X[i]*Y[i];
+		sXY+=XY[i];
+		X2[i]=X[i]*X[i];
+		sX2+=X2[i];
+	}
+	//Displaying Table
+	printf("x\t\ty\t\tX=x^3\t\tY=xy\t\tXY\t\tX^2\n");
+	for(int i=0;i<n;i++)
+	{
+		printf("%.2f\t\t%.2f\t\t%.2f\t\t%.2f\t\t%.2f\t\t%.2f\n",x[i],y[i],X[i],Y[i],XY[i],X2[i]);
+	}
+	printf("Sx=%.2f\tSy=%.2f\tSX=%.2f\tSY=%.2f\tSXY=%.2f\tSX^2=%.2f\n",sx,sy,sX,sY,sXY,sX2);
+	
+	//calculating value of a,b using Det() function
+	D=Det(sX,n,sX2,sX);
+	D1=Det(sY,n,sXY,sX);
+	D2=Det(sX,sY,sX2,sXY);
+	a=D1/D;
+	b=D2/D;
+	printf("\nRequired Equation is:  y= %.2fx^2 + %.2f/x",a,b);
+	free(x);
+	free(y);
+	free(X);
+	free(Y);
+	free(XY);
+	free(X2);
+return 0;
+}
