@@ -15,9 +15,9 @@ int main()
 	scanf("%f",&n);
 	x=(float*)malloc(sizeof(float)*n);
 	y=(float*)malloc(sizeof(float)*n);
+	X=(float*)malloc(sizeof(float)*n);
 	Y=(float*)malloc(sizeof(float)*n);
 	XY=(float*)malloc(sizeof(float)*n);
-	X=(float*)malloc(sizeof(float)*n);
 	X2=(float*)malloc(sizeof(float)*n);
 	//Taking Value of X
 	printf("Enter the values in x:\n");
