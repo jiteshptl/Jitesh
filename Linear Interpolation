@@ -51,7 +51,7 @@ int main()
 	D2=Det(sx,sy,sx2,sxy);
 	a=D1/D;
 	b=D2/D;
-	printf("\nRequired Equation is:\ny=%.2f+%.2fx",a,b);
+	printf("\nRequired Equation is:\ny=%.2fx+%.2f",a,b);
 	free(x);
 	free(y);
 	free(x2);
