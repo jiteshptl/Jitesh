@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<conio.h>
 #include<stdlib.h>
+//function to calculate determinant of 2X2 matrix
 float Det(float a,float b, float c, float d)
 {
 	return((a*d)-(b*c));
@@ -20,12 +21,6 @@ int main()
 	{
 		scanf("%f",x+i);
 	}
-	for(int i=0;i<n;i++)
-	{
-		//printf("%.2f\n",x[i]);
-		sx+=x[i];
-	}
-	//printf("SummationX= %.2f",sx);
 	//Taking values from Y
 	printf("Enter the values in y:\n");
 	for(int i=0;i<n;i++)
@@ -35,36 +30,31 @@ int main()
 	for(int i=0;i<n;i++)
 	{
 		//printf("%.2f\n",y[i]);
+		sx+=x[i];
 		sy+=y[i];
-	}
-//	printf("SummationY= %.2f",sy);
-	//Calculating X^2
-	for(int i=0;i<n;i++)
-	{
 		x2[i]=x[i]*x[i];
 		sx2+=x2[i];
-	}
-//	printf("Summation X^2= %.2f",sx2);*/
-	//Calculating x*y
-	for(int i=0;i<n;i++)
-	{
 		xy[i]=x[i]*y[i];
 		sxy+=xy[i];
 	}
-	//printf("%.2f",sxy);
+	//Displaying Table
+	printf("X\t\tY\t\tX^2\t\tXY\n");
+	for(int i=0;i<n;i++)
+	{
+		printf("%.2f\t\t%.2f\t\t%.2f\t\t%.2f\n",x[i],y[i],x2[i],xy[i]);
+	}
+	printf("SX=%.2f\tSY=%.2f\tSX^2=%.2f\tSXY=%.2f\n",sx,sy,sx2,sxy);
+	
+	//calculating value of a,b using Det() function
 	D=Det(sx,n,sx2,sx);
 	D1=Det(sy,n,sxy,sx);
 	D2=Det(sx,sy,sx2,sxy);
 	a=D1/D;
 	b=D2/D;
-	printf("Required Equation is:\n\ny=%.2f+%.2fx",a,b);
-	//printf("Determinant= %.2f",D);
+	printf("\nRequired Equation is:\ny=%.2f+%.2fx",a,b);
+	free(x);
+	free(y);
+	free(x2);
+	free(xy);
 return 0;
 }
-
-/*for(int i=0;i<n;i++)
-	{
-		printf("%.2f\n",xy[i]);
-	}*/
-
-
