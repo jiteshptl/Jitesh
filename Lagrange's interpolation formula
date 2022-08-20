@@ -1,0 +1,29 @@
+//Lagrange's Interpolation Formula
+#include<stdio.h>
+#include<conio.h>
+int main()
+{
+	float x[4],y[4],a,p[4],z;
+	printf("Enter x0, x1, x2, x3:\n");
+	for(int i=0;i<4;i++)
+	{
+		scanf("%f",&x[i]);
+	}
+	printf("Enter y0, y1, y2, y3:\n");
+	for(int i=0;i<4;i++)
+	{
+		scanf("%f",&y[i]);
+	}
+	printf("Enter value of x given: ");
+	scanf("%f",&a);
+	p[0]=(a-x[1])*(a-x[2])*(a-x[3])/((x[0]-x[1])*(x[0]-x[2])*(x[0]-x[3]));
+	p[1]=(a-x[0])*(a-x[2])*(a-x[3])/((x[1]-x[0])*(x[1]-x[2])*(x[1]-x[3]));
+	p[2]=(a-x[0])*(a-x[1])*(a-x[3])/((x[2]-x[0])*(x[2]-x[1])*(x[2]-x[3]));
+	p[3]=(a-x[0])*(a-x[1])*(a-x[2])/((x[3]-x[0])*(x[3]-x[1])*(x[3]-x[2]));
+	for(int i=0;i<4;i++)
+	{
+		z=z+(p[i]*y[i]);
+	}
+	printf("\nFor x= %.2f, y= %.2f",a,z);
+	return 0;
+}
