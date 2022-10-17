@@ -2,6 +2,7 @@
 #include<conio.h>
 #include<stdlib.h>
 void intigration(float,int,float *);
+float function(float);
 int main()
 {
 	float *x,*y,h,b,a;
