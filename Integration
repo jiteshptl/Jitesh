@@ -39,39 +39,40 @@ float function(float x)
 	return (1/(1+x*x));
 }
 void integration(float x,int a,float *y){
-	int i,c;
-	float val;
-	while(1){
-		printf("\n\n1.Trapezoidal Rule\n2.Simpsons 1/3 Rule\n3.Simpsons 3/8 Rule\n4.Exit");
-		printf("\nEnter choice: ");
-		scanf("%d",&c);
-		switch(c)
-		{
-			case 1:
-				val=(x/2)*((y[0]+y[6])+2*(y[1]+y[2]+y[3]+y[4]+y[5]));
-				printf("\nUsing Trapezoidal Rule, Integration= %.4f",val);
-				break;
-			case 2:
-					if(a%2==0){
-							val=(x/3)*((y[0]+y[6])+2*(y[2]+y[4])+4*(y[1]+y[3]+y[5]));
-							printf("\nUsing Simpson's 1/3 Rule, Integration= %.4f",val);
-					}else{
-							printf("Simpson's 1/3 Rule is not applicable");
-						}	
-					break;
-			case 3:
-				if(a%3==0){
-							val=(3*x/8)*((y[0]+y[6])+2*(y[3])+3*(y[1]+y[2]+y[4]+y[5]));
-							printf("\nUsing Simpson's 3/8 Rule, Integration= %.4f",val);
-				}else{
-							printf("Simpson's 3/8 Rule is not applicable");
-					}
-				break;
-			case 4:
-				exit(0);
-				break;
-			default:
-				printf("Enter valid option!!");
+    int i,c;
+    float val;
+    while(1)
+    {
+      	printf("\n\n1.Trapezoidal Rule\n2.Simpsons 1/3 Rule\n3.Simpsons 3/8 Rule\n4.Exit");
+	printf("\nEnter choice: ");
+	scanf("%d",&c);
+	switch(c)
+	{
+	case 1:
+		val=(x/2)*((y[0]+y[6])+2*(y[1]+y[2]+y[3]+y[4]+y[5]));
+		printf("\nUsing Trapezoidal Rule, Integration= %.4f",val);
+		break;
+	case 2:
+		if(a%2==0){
+		val=(x/3)*((y[0]+y[6])+2*(y[2]+y[4])+4*(y[1]+y[3]+y[5]));
+		printf("\nUsing Simpson's 1/3 Rule, Integration= %.4f",val);
+		}else{
+		printf("Simpson's 1/3 Rule is not applicable");
+		}	
+		break;
+	case 3:
+		if(a%3==0){
+		val=(3*x/8)*((y[0]+y[6])+2*(y[3])+3*(y[1]+y[2]+y[4]+y[5]));
+		printf("\nUsing Simpson's 3/8 Rule, Integration= %.4f",val);
+		}else{
+		printf("Simpson's 3/8 Rule is not applicable");
 		}
-	}	
+		break;
+	case 4:
+		exit(0);
+		break;
+	default:
+		printf("Enter valid option!!");
+	}
+    }	
 }
