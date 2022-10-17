@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<conio.h>
 #include<stdlib.h>
-void intigration(float,int,float *);
+void integration(float,int,float *);
 float function(float);
 int main()
 {
@@ -29,7 +29,7 @@ int main()
 	printf("Y%d=%.4f  ",i,y[i]);
 
 	}
-	intigration(h,n,y);
+	integration(h,n,y);
 	free(x);
 	free(y);
 	return 0;
